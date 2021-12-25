@@ -4,6 +4,11 @@
 <head>
   <?php include 'layout/headerpage.php'; ?>
 </head>
+<?php include "../dao/OrderDao.php" ?>
+<?php
+$history = OrderDao::getOrder($_GET['order_id']);
+$details = OrderDao::getDetailsOrder($_GET['order_id']);
+?>
 
 <body>
   <header>
@@ -40,35 +45,13 @@
               <h4>order info</h4>
               <ul>
                 <li>
-                  <p>order number</p><span>: 60235</span>
+                  <p>order number</p><span> : <?php echo $history[0]['order_id'] ?></span>
                 </li>
                 <li>
-                  <p>data</p><span>: Oct 03, 2017</span>
+                  <p>data</p><span> : <?php echo $history[0]['order_date'] ?></span>
                 </li>
                 <li>
-                  <p>total</p><span>: USD 2210</span>
-                </li>
-                <li>
-                  <p>mayment methord</p><span>: Check payments</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-6 col-lx-4">
-            <div class="single_confirmation_details">
-              <h4>Billing Address</h4>
-              <ul>
-                <li>
-                  <p>Street</p><span>: 56/8</span>
-                </li>
-                <li>
-                  <p>city</p><span>: Los Angeles</span>
-                </li>
-                <li>
-                  <p>country</p><span>: United States</span>
-                </li>
-                <li>
-                  <p>postcode</p><span>: 36952</span>
+                  <p>total</p><span> : <?php echo number_format($history[0]['amount'], 0, ",", ".") ?> VND</span>
                 </li>
               </ul>
             </div>
@@ -78,17 +61,9 @@
               <h4>shipping Address</h4>
               <ul>
                 <li>
-                  <p>Street</p><span>: 56/8</span>
+                  <p>Address</p><span> : <?php echo $history[0]['order_address'] ?></span>
                 </li>
-                <li>
-                  <p>city</p><span>: Los Angeles</span>
-                </li>
-                <li>
-                  <p>country</p><span>: United States</span>
-                </li>
-                <li>
-                  <p>postcode</p><span>: 36952</span>
-                </li>
+
               </ul>
             </div>
           </div>
@@ -98,44 +73,31 @@
             <div class="order_details_iner">
               <h3>Order Details</h3>
               <table class="table table-borderless">
-                <thead>
-                  <tr>
-                    <th scope="col" colspan="2">Product</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Total</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th colspan="2"><span>Pixelstore fresh Blackberry</span></th>
-                    <th>x02</th>
-                    <th> <span>$720.00</span></th>
-                  </tr>
-                  <tr>
-                    <th colspan="2"><span>Pixelstore fresh Blackberry</span></th>
-                    <th>x02</th>
-                    <th> <span>$720.00</span></th>
-                  </tr>
-                  <tr>
-                    <th colspan="2"><span>Pixelstore fresh Blackberry</span></th>
-                    <th>x02</th>
-                    <th> <span>$720.00</span></th>
-                  </tr>
-                  <tr>
-                    <th colspan="3">Subtotal</th>
-                    <th> <span>$2160.00</span></th>
-                  </tr>
-                  <tr>
-                    <th colspan="3">shipping</th>
-                    <th><span>flat rate: $50.00</span></th>
-                  </tr>
-                </tbody>
-                <tfoot>
-                  <tr>
-                    <th scope="col" colspan="3">Quantity</th>
-                    <th scope="col">Total</th>
-                  </tr>
-                </tfoot>
+                <?php
+
+                echo '<thead>';
+                echo '<tr> ';
+                echo '<th scope="col" colspan="2">Product</th>';
+                echo '<th scope="col">Quantity</th> ';
+                echo '<th scope="col">Total</th>';
+                echo '</tr> ';
+                echo '</thead>';
+                foreach ($details as $i => $pr) :
+                echo '<tbody> ';
+                echo '<tr>';
+                  echo '<th colspan="2"><span>' . $pr['product_name'] . '</span></th> ';
+                  echo '<th>x ' . $pr['quaility'] . ' </th>';
+                  echo '<th> <span>' . number_format($pr['price'], 0, ",", ".") . ' VND</span></th> ';
+                echo '</tr>';
+                echo '</tbody> ';
+                endforeach;
+                echo '<tfoot>';
+                echo '<tr>';
+                echo '<th scope="col" colspan="3">Total</th>';
+                echo '<th scope="col">' . number_format($history[0]['amount'], 0, ",", ".") . ' VND</th> ';
+                echo '</tr>';
+                echo '</tfoot>';
+                ?>
               </table>
             </div>
           </div>

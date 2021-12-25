@@ -11,11 +11,15 @@ if (isset($_GET['id'])) {
     $param[] = $_GET['id'];
 }
 $pr = $dbCon->getPrDetails($query, $param);
+if(isset($_GET['vitri'])){
+    $vitri = $_GET['vitri'];
+    unset($_SESSION['cart'][$vitri]);
+    header('Location: ../view/giohang.php');
+}
 if (isset($_SESSION['cart'])) {
     if ($value == 0) {
         unset($_SESSION['cart'][$product_id]);
         header("Location:../view/product_details.php?product_id=$product_id");
-        exit();
     } else {
         switch ($value) {
             case 1:
@@ -38,7 +42,12 @@ if (isset($_SESSION['cart'])) {
         $_SESSION['cart'][$product_id]['avtar'] = $pr['avtar'];
         $_SESSION['cart'][$product_id]['price'] = $pr['price'];
     }
-    header("Location:../view/cart.php");
+    if (isset($_SESSION['isLogin'])) {
+        header("Location:../view/cart.php");
+    } else {
+        header("Location:../view/login.php");
+    }
+    
     exit();
 } else {
     $_SESSION['cart'][$product_id]['product_id'] = $pr['product_id'];
@@ -46,6 +55,10 @@ if (isset($_SESSION['cart'])) {
     $_SESSION['cart'][$product_id]['product_name'] = $pr['product_name'];
     $_SESSION['cart'][$product_id]['price'] = $pr['price'];
     $_SESSION['cart'][$product_id]['qty_value'] = $value;
-    header("Location:../view/cart.php");
+    if (isset($_SESSION['isLogin'])) {
+        header("Location:../view/cart.php");
+    } else {
+        header("Location:../view/login.php");
+    }
     exit();
 }

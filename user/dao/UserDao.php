@@ -46,5 +46,13 @@ class UserDao
         $myDB->updateData($query, $param);
         $myDB->disconnectDB();
     }
+    public static function getHistoryOrder($id)
+    {
+        $myDB = new MySQLUtil();
+        $query = "SELECT  `order_id`, `user_id`, DATE_FORMAT(order_date, '%d/%m/%Y')as `order_date`, `order_status`, `amount`, `order_name`, `order_address`, `order_phone`, `order_email`, `order_note` FROM `order` WHERE user_id=$id ";
+        $data = $myDB->getAllData($query);
+        $myDB->disconnectDB();
+        return $data;
+    }
 }
 ?>

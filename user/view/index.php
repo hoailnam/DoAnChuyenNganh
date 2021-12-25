@@ -81,7 +81,22 @@
                     $param = array();
                     $query = "select * from product";
                     $query .= ' limit ' . ($page - 1) * 3 . ',' . 3;
-                    $dbCon->getDataPr($query, $param);
+                    $list = $dbCon->getDataPr($query, $param);
+                    foreach ($list as $pr){
+                        echo '<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">';
+                        echo '<div class="single-new-pro mb-30 text-center"> ';
+                        echo '<div class="product-img">';
+                        echo '<a href="product_details.php?product_id=' . $pr['product_id'] . '"><img src="assets/img/gallery/' . explode(',', $pr['avtar'])[0] . '" alt=""></a> ';
+                        echo '</div>';
+                        echo '<div class="product-caption"> ';
+                        echo '<h3><a href="product_details.php?product_id=' . $pr['product_id'] . '">' . $pr['product_name'] . '</a></h3>';
+                        echo '<span>' . number_format($pr['price']) . ' VND</span> ';
+                        echo '</div>';
+                        echo '</div> ';
+                        echo '</div>';
+                    }
+
+                        
                     ?>
 
                 </div>
@@ -137,7 +152,7 @@
                     <?php
                     $query = "select * from product";
                     $query .= ' limit ' . ($page - 1) * 6 . ',' . 6;
-                    $list = $dbCon->getDataPr2($query, $param);
+                    $list = $dbCon->getDataPr($query, $param);
                     foreach ($list as $pr) {
                         echo '<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">';
                         echo '<div class="single-popular-items mb-50 text-center"> ';

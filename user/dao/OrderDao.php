@@ -27,4 +27,21 @@ class OrderDao{
         $myDB->disconnectDB();
         return $data;
     }
+    public static function getOrder($id)
+    {
+        $myDB = new MySQLUtil();
+        $query = "SELECT  `order_id`, DATE_FORMAT(order_date, '%d/%m/%Y')as `order_date`, `order_status`, `amount`, `order_name`, `order_address`, `order_phone`, `order_email`, `order_note` FROM `order` WHERE order_id=$id";
+        $data = $myDB->getAllData($query);
+        $myDB->disconnectDB();
+        return $data;
+    }
+
+    public static function getDetailsOrder($id)
+    {     
+        $myDB = new MySQLUtil();
+        $query = "select d.product_id, sp.product_name, sp.price, d.quaility, d.price_sale,sp.type_id from order_detail as d join product as sp on d.product_id=sp.product_id where d.order_id=$id";
+        $data = $myDB->getAllData($query);
+        $myDB->disconnectDB();
+        return $data;
+    }
 }

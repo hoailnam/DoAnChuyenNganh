@@ -55,7 +55,25 @@
                     $page = 1;
                     $param = array();
                     $sql = "select count(*) from product";
-                    $dbCon->getPage($sql, $param);
+                    $sotrang = $dbCon->getPage($sql, $param);
+                    echo ' <div class="select-this">';
+                    echo '<form action="#"> ';
+                    echo '<div class="custom-pagination">';
+                    echo '<ul class="pagination"> ';
+                    if (isset($_GET['type_id']))
+                        for ($i = 1; $i <= $sotrang; $i++)
+                            echo ' <li class="page-item"><a class="page-link" href="shop.php?type_id=' . $_GET['type_id'] . '&page=' . $i . '">' . $i . '</a></li> ';
+
+                    else {
+                        for ($i = 1; $i <= $sotrang; $i++)
+                            echo ' <li class="page-item"><a class="page-link" href="shop.php?page=' . $i . '">' . $i . '</a></li> ';
+                    }
+                    echo '</ul> ';
+                    echo '</div>';
+                    echo '</form> ';
+                    echo '</div>';
+
+
                     ?>
 
                 </div>
@@ -73,8 +91,8 @@
                             } else
                                 $query = "select * from product";
                             $query .= ' limit ' . ($page - 1) * 6 . ',' . 6;
-                            $list = $dbCon->getDataPr2($query,$param);
-                            foreach($list as $pr){
+                            $list = $dbCon->getDataPr($query, $param);
+                            foreach ($list as $pr) {
                                 echo '<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">';
                                 echo '<div class="single-popular-items mb-50 text-center"> ';
                                 echo '<div class="popular-img">';
@@ -93,7 +111,7 @@
                                 echo '</div> ';
                                 echo '</div>';
                             }
-                            
+
                             ?>
                         </div>
                     </div>

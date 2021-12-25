@@ -9,7 +9,6 @@ class PayController extends BaseController
     {
         switch ($order_action) {
             case 'order':
-
                 $name = $_POST["name"];
                 $phone = $_POST["phone"];
                 $email = $_POST["email"];
@@ -27,6 +26,7 @@ class PayController extends BaseController
                     $sum = $value['price'] * $value['qty_value'];
                     OrderDao::insertDetailOrder($madon,$id_pr,$value['qty_value'],$sum);
                 endforeach;
+                unset($_SESSION['cart']);
                 alertM("Đặt Hàng Thành Công Thành Công !!! ", "../view/index.php");
                 exit;
         }
