@@ -34,22 +34,19 @@ class UserController extends BaseController{
                     alertM("Mật khẩu bạn không chính xác. Vui lòng kiểm tra lại. !!!", "../view/login.php");
                     exit;
                 } elseif ($login_email == $data["user_email"] && $login_password == $data["user_pass"]) {
-                    $_SESSION["user_email"] = $login_email;
+                    $_SESSION["user_name"] = $data['user_name'];
                     $_SESSION["isLogin"] = true;
                     $_SESSION["user_ma"] = $data["user_id"];
                     alertM("Đăng Nhập Thành Công", "../view/index.php");
-                
                 } else {
                     header("Location: ../view/login.php");
                 }
                 break;
             case 'user_update':
-
                 $login_email = $_POST["login_email"];
                 $login_password = md5($_POST["login_password"]);
                 $new_password = md5($_POST["new_password"]);
                 $data = UserDao::getUser($login_email);
-
                 if (isset($data["user_email"]) == false) {
                     alertM("Tên đăng nhập này không tồn tại. Vui lòng kiểm tra lại. !!!", "../view/updatePassUser.php");
                     exit;

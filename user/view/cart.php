@@ -109,8 +109,7 @@
                   <td>
                     <div class="cupon_text float-right">
                       <?php
-
-                      if (count($_SESSION['cart'])>0) {
+                      if (isset($_SESSION['cart'])) {
                         echo '<a class="btn_1" href="../view/checkout.php">Thanh Toán</a>';
                       } else {
                         echo '<script language="javascript">';
@@ -119,7 +118,6 @@
                         echo '<script type="text/javascript">
             window.location = "shop.php" </script>';
                       }
-
                       ?>
 
                     </div>

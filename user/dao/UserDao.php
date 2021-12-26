@@ -30,14 +30,7 @@ class UserDao
         $myDB->disconnectDB();
         return $data[0];
     }
-    public function deleteUser($user_email)
-    {
-        $myDB = new MySQLUtil();
-        $query = "DELETE FROM user where user_email=:user_email";
-        $param = array(":user_email" => $user_email);
-        $myDB->updateData($query, $param);
-        $myDB->disconnectDB();
-    }
+
     public static function updateUser($user_email,$userpass)
     {
         $myDB = new MySQLUtil();
