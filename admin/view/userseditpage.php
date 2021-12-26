@@ -59,7 +59,7 @@
                     <ul class="clearfix">
                         <li class="icons dropdown">
                             <div>
-                                <a href="UserList.php" type="button" class="btn btn-primary" style="margin:30px" class="fa fa-plus"><i class="fa fa-plus">&ensp;Back</i></a>
+                                <a href="UserList.php" type="button" class="btn btn-primary" style="margin:30px" class="fa fa-arrow-left"><i class="fa fa-arrow-left">&ensp;Back</i></a>
                             </div>
                         </li>
                         <li class="icons dropdown">

@@ -87,25 +87,9 @@ class OrderDao{
         $myDB->disconnectDB();
     }
 
-    public static function checkExistDonHangSanPham($id)
-    {
-        $myDB = new MySQLUtil();
-        $query = "SELECT `product_id` FROM `order_detail` WHERE product_id =:product_id;";
-        $param = array(":product_id" => $id);
-        $data = $myDB->getDataa($query,$param);
-        $myDB->disconnectDB();
-        if (!empty($data)) return true;
-        return false;
-    }
+    
 
-    public static function deletePr($id)
-    {
-        $myDB = new MYSQLUtil();
-        $query = "DELETE FROM `product` WHERE product_id = :product_id";
-        $param = array(":product_id" => $id);
-        $myDB->deleteData($query, $param);
-        $myDB->disconnectDB();
-    }
+    
 
     public static function getProduct($product_id)
     {
@@ -125,13 +109,5 @@ class OrderDao{
         $myDB->updateData($query, $param);
         $myDB->disconnectDB();
     }
-
-    public static function updatePr($product_id, $product_name, $price, $type_id, $quantily)
-    {
-        $myDB = new MYSQLUtil();
-        $query = "UPDATE `product` SET `product_id`=:product_id,`product_name`=:product_name,`price`=:price,`type_id`=:type_id,`quantily`=:quantily WHERE product_id=:product_id";
-        $param = array(":product_id" => $product_id, ":product_name" => $product_name, ":price" => $price, ":type_id" => $type_id, ":quantily" => $quantily);
-        $myDB->updateData($query, $param);
-        $myDB->disconnectDB();
-    }
+    
 }

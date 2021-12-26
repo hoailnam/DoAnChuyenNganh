@@ -1,17 +1,27 @@
 <?php
 
-include '../dao/OrderDao.php';
+include '../dao/ProductDao.php';
 if (isset($_GET['delete'])) {
     $product_id = $_GET['product_id'];
-    $check = OrderDAO::checkExistDonHangSanPham($product_id);
+    $check = ProductDao::checkExistDonHangSanPham($product_id);
     if ($check == true) {
         alertM("Product còn tồn tại trong đơn hàng", "../view/productlist.php");
     }else{
-        OrderDao::deletePr($product_id);
+        ProductDao::deletePr($product_id);
         alertM("Delete Sản Phẩm $product_id Thành Công", "../view/productlist.php");
     }
     
-} 
+} else if (isset($_POST['save'])) {
+    $txt_id = $_POST["txt_id"];
+    $txt_name = $_POST["txt_name"];
+    $txt_price = $_POST["txt_price"];
+    $txt_type = $_POST["txt_type"];
+    $txt_qty = $_POST["txt_qty"];
+    $txt_stt = "Còn Hàng";
+    $txt_avtar = $_FILES['fileToUpload']['name'];
+    ProductDao::insertProduct($txt_id, $txt_name, $txt_price, $txt_avtar, $txt_type, $txt_qty,$txt_stt);
+    alertM("Insert product Thành Công", "../view/productList.php");
+}
 $action_pr = $_POST['action_pr'];
 switch ($action_pr) {
     case 'update':
@@ -20,22 +30,12 @@ switch ($action_pr) {
         $txt_price = $_POST["txt_price"];
         $txt_type = $_POST["txt_type"];
         $txt_quantily = $_POST["txt_quantily"];
-       
-        OrderDao::updatePr($txt_id, $txt_name, $txt_price, $txt_type, $txt_quantily);
+
+        ProductDao::updatePr($txt_id, $txt_name, $txt_price, $txt_type, $txt_quantily);
         alertM("Update user Thành Công", "../view/productlist.php");
         break;
-    case 'delete':
-        var_dump($_POST);
-        break;
 }
-$action = $_GET['action'];
-switch ($action) {
-    case "delete":
-        
-}
-
-
-
+    
 function alertM($smg, $link)
 {
     echo '<script language="javascript">';

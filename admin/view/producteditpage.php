@@ -59,14 +59,11 @@
                     <ul class="clearfix">
                         <li class="icons dropdown">
                             <div>
-                                <a href="productlist.php" type="button" class="btn btn-primary" style="margin:30px" class="fa fa-plus"><i class="fa fa-plus">&ensp;Back</i></a>
+                                <a href="productlist.php" type="button" class="btn btn-primary" style="margin:30px" class="fa fa-arrow-left"><i class="fa fa-arrow-left">&ensp;Back</i></a>
                             </div>
                         </li>
                         <li class="icons dropdown">
-                            <div class="user-img c-pointer position-relative" data-toggle="dropdown">
-                                <span class="activity active"></span>
-                                <img src="images/user/1.png" height="40" width="40" alt="">
-                            </div>
+
                             <?php include '../view/layout/menupage.php' ?>
                         </li>
                     </ul>
@@ -136,8 +133,8 @@
                                                 echo '<div class="col col-md-3"><label for="password-input" class=" form-control-label">Quantity</label></div>';
                                                 echo '<div class="col-12 col-md-9"><input  id="txt_quantily" value="' . $product['quantily'] . '" name="txt_quantily" class="form-control"></div>';
                                                 echo '</div>';
-                                                
-                    
+
+
                                                 echo '<button type="submit"  name="action_pr" value="update" class="btn btn-primary btn-sm">
                                                             <i class="fa fa-dot-circle-o"></i> Update';
                                                 echo '</button>';

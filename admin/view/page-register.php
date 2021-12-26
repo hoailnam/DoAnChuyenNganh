@@ -63,7 +63,7 @@
 
                                     <button type="submit" id="btn_test" name="user_group_action" value="admin_create" class="btn login-form__btn submit w-100">Create</button>
                                 </form>
-                                <p class="mt-5 login-form__footer">Dont have account? <a href="page-register.php" class="text-primary">Sign Up</a> now</p>
+                                <p class="mt-5 login-form__footer"><a href="index.php" class="fa fa-arrow-left"> Back</a> </p>
                             </div>
                         </div>
                     </div>

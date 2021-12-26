@@ -6,6 +6,7 @@
 
 </head>
 
+
 <body>
 
     <!--*******************
@@ -59,14 +60,11 @@
                     <ul class="clearfix">
                         <li class="icons dropdown">
                             <div>
-                                <a href="productlist.php" type="button" class="btn btn-primary" style="margin:30px" class="fa fa-plus"><i class="fa fa-plus">&ensp;Back</i></a>
+                                <a href="productlist.php" type="button" class="btn btn-primary" style="margin:30px" class="fa fa-arrow-left"><i class="fa fa-arrow-left">&ensp;Back</i></a>
                             </div>
                         </li>
                         <li class="icons dropdown">
-                            <div class="user-img c-pointer position-relative" data-toggle="dropdown">
-                                <span class="activity active"></span>
-                                <img src="images/user/1.png" height="40" width="40" alt="">
-                            </div>
+
                             <?php include '../view/layout/menupage.php' ?>
                         </li>
                     </ul>
@@ -99,20 +97,39 @@
                                 <div class="form-validation">
                                     <form action="../controller/productController.php" method="POST" enctype="multipart/form-data" class="form-horizontal">
                                         <div class="row form-group">
-                                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">id</label></div>
+                                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">ID</label></div>
                                             <div class="col-12 col-md-9"><input type="text" id="txt_id" name="txt_id" class="form-control"></div>
                                         </div>
                                         <div class="row form-group">
-                                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">name</label></div>
+                                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">NAME</label></div>
                                             <div class="col-12 col-md-9"><input type="text" id="txt_name" name="txt_name" class="form-control"></div>
                                         </div>
                                         <div class="row form-group">
-                                            <div class="col col-md-3"><label for="email-input" class=" form-control-label">price</label></div>
+                                            <div class="col col-md-3"><label for="email-input" class=" form-control-label">PRICE</label></div>
                                             <div class="col-12 col-md-9"><input id="txt_price" name="txt_price" class="form-control" require></div>
                                         </div>
                                         <div class="row form-group">
-                                            <div class="col col-md-3"><label for="password-input" class=" form-control-label">type_id</label></div>
-                                            <div class="col-12 col-md-9"><input id="txt_type_id" name="txt_type_id" class="form-control"></div>
+                                            <div class="col col-md-3"><label for="password-input" class=" form-control-label">TYPE</label></div>
+                                            <div class="col-12 col-md-9" style="width:200px;">
+                                                <select name="txt_type">
+                                                    <?php
+                                                    include '../dao/ProductDao.php';
+                                                    $tp = ProductDao::gettype();
+                                                    foreach ($tp as $type) :
+                                                        echo '<option value="' . $type['type_id'] . '">' . $type['type_name'] . '</option>';
+                                                    endforeach
+                                                    ?>
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col col-md-3"><label for="password-input" class=" form-control-label">QUANTITY</label></div>
+                                            <div class="col-12 col-md-9"><input id="txt_qty" name="txt_qty" class="form-control"></div>
+                                        </div>
+                                        <div class="row form-group" hidden>
+                                            <div class="col col-md-3"><label for="password-input" class=" form-control-label">STATUS</label></div>
+                                            <div class="col-12 col-md-9"><input id="txt_stt" name="txt_stt" class="form-control"></div>
                                         </div>
                                         <div class="row form-group">
 

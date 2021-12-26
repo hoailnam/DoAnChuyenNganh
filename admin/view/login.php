@@ -48,7 +48,7 @@
                                     </div>
                                     <button type="submit" id="btn_test" name="user_group_action" value="admin_login" class="btn login-form__btn submit w-100">Sign In</button>
                                 </form>
-                                <p class="mt-5 login-form__footer">Dont have account? <a href="page-register.php" class="text-primary">Sign Up</a> now</p>
+                                
                             </div>
                         </div>
                     </div>

@@ -59,14 +59,11 @@
                     <ul class="clearfix">
                         <li class="icons dropdown">
                             <div>
-                                <a href="UserList.php" type="button" class="btn btn-primary" style="margin:30px" class="fa fa-plus"><i class="fa fa-plus">&ensp;Back</i></a>
+                                <a href="UserList.php" type="button" class="btn btn-primary" style="margin:30px" class="fa fa-arrow-left"><i class="fa fa-arrow-left">&ensp;Back</i></a>
                             </div>
                         </li>
                         <li class="icons dropdown">
-                            <div class="user-img c-pointer position-relative" data-toggle="dropdown">
-                                <span class="activity active"></span>
-                                <img src="images/user/1.png" height="40" width="40" alt="">
-                            </div>
+
                             <?php include '../view/layout/menupage.php' ?>
                         </li>
                     </ul>

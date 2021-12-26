@@ -5,4 +5,4 @@ session_destroy();
 echo '<script language="javascript">';
 echo 'alert("Đăng Xuất Thành Công !!! ")';
 echo '</script>';
-echo '<script type="text/javascript">window.location = "index.php" </script>';
+echo '<script type="text/javascript">window.location = "../index.php" </script>';

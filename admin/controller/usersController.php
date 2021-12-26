@@ -39,7 +39,7 @@ switch ($user_group_action) {
             $_SESSION["isLogin"] = true;
             $_SESSION["admin"] = $data["admin_id"];
             
-            alertM("Đăng Nhập Thành Công", "../view/UserList.php");
+            alertM("Đăng Nhập Thành Công", "../view/index.php");
           
         } else {
             header("Location: ../view/login.php");

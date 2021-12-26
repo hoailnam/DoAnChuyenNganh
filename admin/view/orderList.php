@@ -57,12 +57,8 @@
 
         <div class="header-right">
           <ul class="clearfix">
-            
+
             <li class="icons dropdown">
-              <div class="user-img c-pointer position-relative" data-toggle="dropdown">
-                <span class="activity active"></span>
-                <img src="images/user/1.png" height="40" width="40" alt="">
-              </div>
               <?php include '../view/layout/menupage.php' ?>
             </li>
           </ul>
@@ -137,15 +133,15 @@
                               echo '<td width="30px">';
                               echo '<a href="../controller/OrderController.php?order_id=' . $product['order_id'] . '" type = "button" class = "btn btn-success"><i class = "fa fa-edit"></i> Sửa</a>';
                               echo '</td>';
-
-                              echo '<td width="30px">';
-                              echo '<a href="../controller/OrderController.php?order_id=' . $product['order_id'] . '&action=delete" type = "button" class = "btn btn-danger" "  ><i class = "fa fa-times"></i> Xóa</a>';
-                              echo '</td>';
-                              echo '<td width="30px">';
                               if ($product['order_status'] == "Chưa giao") {
+                                echo '<td width="30px">';
                                 echo '<a href="../controller/OrderController.php?order_id=' . $product['order_id'] . '&action=duyet" type = "button" class = "btn btn-success"><i class = "fa fa-edit"></i> Duyệt</a>';
+                                echo '</td>';
+                              }else{
+                                echo '<td width="30px">';
+                                echo '<a href="../controller/OrderController.php?order_id=' . $product['order_id'] . '&action=delete" type = "button" class = "btn btn-danger" "  ><i class = "fa fa-times"></i> Xóa</a>';
+                                echo '</td>';
                               }
-                              echo '</td>';
                               echo '</tr>';
                             }
                           }
