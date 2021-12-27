@@ -125,7 +125,8 @@
                                                 echo '</div>';
                                                 echo ' <div class="row form-group">';
                                                 echo '<div class="col col-md-3"><label for="password-input" class=" form-control-label">Type</label></div>';
-                                                echo '<div class="col-12 col-md-9"><input  id="txt_type" value="' . $product['type_id'] . '" name="txt_type" class="form-control"></div>';
+                                                echo '<div class="col-12 col-md-9"><input  id="txt_type" value="' . $product['type_id'] . '" name="txt_type" class="form-control">
+                                                </div>';
                                                 echo '</div>';
                                                 echo '</div>';
                                                 echo ' <div class="row form-group">';
