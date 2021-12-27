@@ -5,6 +5,8 @@ if (isset($_GET['action'])) {
     switch ($_GET['action']) {
         case 'delete':
             $order_id = $_GET['order_id'];
+            OrderDao::deleteOrderDe($order_id);
+            OrderDao::deleteOadmin($order_id);
             OrderDao::deleteOrder($order_id);
             header("Location: ../view/orderList.php");
             break;
@@ -12,20 +14,23 @@ if (isset($_GET['action'])) {
             $admin_id= $_SESSION['admin'];
             $order_id = $_GET['order_id'];
             $detail= OrderDao::getDetailsOrder($order_id);
+            // var_dump($detail);
+            // die;
+            // for($i = 0 ;$i<= 1;$i ++){
+            //     var_dump($detail[$i]['quaility']);
+            // }
+            // die;
+
             OrderDao::adminBrowseOrder($admin_id,$order_id);
             OrderDao::browseOrder($order_id);
-            OrderDao::deleteOrderDe($order_id);
-            OrderDao::deleteOadmin($order_id);
+            
             foreach($detail as $pr_detail){
-                $product = OrderDao::getProduct($pr_detail[0]['product_id']);
-                $soLuongMoi = $product['quantily'] - $pr_detail['quaility'];
-                if ($soLuongMoi == 0) {
-                    OrderDao::updateSoLuongSP($pr_detail['product_id'], $soLuongMoi, "Hết hàng");
-                    
-                }else{
-                    
-                    OrderDao::updateSoLuongSP($pr_detail['product_id'], $soLuongMoi, "Còn Hàng");
-                    
+                $product = OrderDao::getProduct($pr_detail['product_id']);
+                $soLuongMoi = $product['quantily'] - $pr_detail['quaility'];                
+                if ($soLuongMoi <= 0) {
+                    OrderDao::updateSoLuongSP($pr_detail['product_id'], "Hết hàng", $soLuongMoi);
+                }else{   
+                    OrderDao::updateSoLuongSP($pr_detail['product_id'], "Còn Hàng", $soLuongMoi);
                 }
             }
             header("Location: ../view/orderList.php");

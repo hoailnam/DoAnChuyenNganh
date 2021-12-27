@@ -30,8 +30,8 @@ switch ($action_pr) {
         $txt_price = $_POST["txt_price"];
         $txt_type = $_POST["txt_type"];
         $txt_quantily = $_POST["txt_quantily"];
-
-        ProductDao::updatePr($txt_id, $txt_name, $txt_price, $txt_type, $txt_quantily);
+        $txt_status = "Còn Hàng";
+        ProductDao::updatePr($txt_id, $txt_name, $txt_price, $txt_type, $txt_quantily,$txt_status);
         alertM("Update user Thành Công", "../view/productlist.php");
         break;
 }

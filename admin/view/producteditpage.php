@@ -104,7 +104,7 @@
                                     try {
                                         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
                                         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                                        $stmt = $conn->prepare("SELECT `product_id`, `product_name`, `price`, `avtar`, `type_id`,quantily FROM `product` WHERE product_id=:product_id");
+                                        $stmt = $conn->prepare("SELECT `product_id`, `product_name`, `price`, `avtar`, `type_id`,quantily,	status FROM `product` WHERE product_id=:product_id");
                                         $stmt->bindParam(':product_id', $id);
                                         $stmt->execute();
                                         $product = $stmt->fetchALL(PDO::FETCH_ASSOC);
@@ -127,14 +127,16 @@
                                                 echo '<div class="col col-md-3"><label for="password-input" class=" form-control-label">Type</label></div>';
                                                 echo '<div class="col-12 col-md-9"><input  id="txt_type" value="' . $product['type_id'] . '" name="txt_type" class="form-control"></div>';
                                                 echo '</div>';
-
                                                 echo '</div>';
                                                 echo ' <div class="row form-group">';
                                                 echo '<div class="col col-md-3"><label for="password-input" class=" form-control-label">Quantity</label></div>';
                                                 echo '<div class="col-12 col-md-9"><input  id="txt_quantily" value="' . $product['quantily'] . '" name="txt_quantily" class="form-control"></div>';
                                                 echo '</div>';
 
-
+                                                echo ' <div class="row form-group"hidden>';
+                                                echo '<div class="col col-md-3"><label for="password-input" class=" form-control-label">Status</label></div>';
+                                                echo '<div class="col-12 col-md-9"><input  id="txt_status" value="' . $product['status'] . '" name="txt_status" class="form-control"></div>';
+                                                echo '</div>';
                                                 echo '<button type="submit"  name="action_pr" value="update" class="btn btn-primary btn-sm">
                                                             <i class="fa fa-dot-circle-o"></i> Update';
                                                 echo '</button>';

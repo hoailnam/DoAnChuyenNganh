@@ -100,7 +100,7 @@
                     <table class="table table-xs mb-0">
                       <thead>
                         <tr>
-                          <th>Image</th>
+                          
                           <th>id</th>
                           <th>Name</th>
                           <th>Setting</th>
@@ -123,11 +123,6 @@
                             foreach ($product as $product) {
                               echo '<form action="../controller/product-portfolio-Controller.php" method="POST" enctype="multipart/form-data" class="form-horizontal"';
                               echo '<tr>';
-                              echo '<td class = "avatar">';
-                              echo '<div class = "round-img">';
-                              echo '<a href = "#"><img class = "rounded-circle" src = "images/card1" alt = ""></a>';
-                              echo '</div>';
-                              echo '</td>';
                               echo '<td name="txt_id">' . $product['type_id'] . '</td>';
                               echo '<td name="txt_name"> <span class = "name">' . $product['type_name'] . '</span> </td>';
                               echo '<td width="50px">';

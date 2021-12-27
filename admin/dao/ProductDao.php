@@ -52,11 +52,11 @@ class ProductDao{
         if (!empty($data)) return true;
         return false;
     }
-    public static function updatePr($product_id, $product_name, $price, $type_id, $quantily)
+    public static function updatePr($product_id, $product_name, $price, $type_id, $quantily,$status)
     {
         $myDB = new MYSQLUtil();
-        $query = "UPDATE `product` SET `product_id`=:product_id,`product_name`=:product_name,`price`=:price,`type_id`=:type_id,`quantily`=:quantily WHERE product_id=:product_id";
-        $param = array(":product_id" => $product_id, ":product_name" => $product_name, ":price" => $price, ":type_id" => $type_id, ":quantily" => $quantily);
+        $query = "UPDATE `product` SET `product_id`=:product_id,`product_name`=:product_name,`price`=:price,`type_id`=:type_id,`quantily`=:quantily,`status`=:status WHERE product_id=:product_id";
+        $param = array(":product_id" => $product_id, ":product_name" => $product_name, ":price" => $price, ":type_id" => $type_id, ":quantily" => $quantily, ":status"=> $status);
         $myDB->updateData($query, $param);
         $myDB->disconnectDB();
     }

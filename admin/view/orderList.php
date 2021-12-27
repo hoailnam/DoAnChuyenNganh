@@ -133,11 +133,17 @@
                               echo '<td width="30px">';
                               echo '<a href="../controller/OrderController.php?order_id=' . $product['order_id'] . '" type = "button" class = "btn btn-success"><i class = "fa fa-edit"></i> Sửa</a>';
                               echo '</td>';
+                              echo '<td width="30px">';
+                              echo '<a href="orderDetail.php?order_id=' . $product['order_id'] . '" type = "button" class = "btn btn-success" "  ><i class = "fa fa-times"></i> Xem</a>';
+                              echo '</td>';
                               if ($product['order_status'] == "Chưa giao") {
                                 echo '<td width="30px">';
                                 echo '<a href="../controller/OrderController.php?order_id=' . $product['order_id'] . '&action=duyet" type = "button" class = "btn btn-success"><i class = "fa fa-edit"></i> Duyệt</a>';
                                 echo '</td>';
                               }else{
+
+                                
+
                                 echo '<td width="30px">';
                                 echo '<a href="../controller/OrderController.php?order_id=' . $product['order_id'] . '&action=delete" type = "button" class = "btn btn-danger" "  ><i class = "fa fa-times"></i> Xóa</a>';
                                 echo '</td>';
