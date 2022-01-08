@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 26, 2021 lúc 03:08 PM
+-- Thời gian đã tạo: Th1 03, 2022 lúc 03:28 PM
 -- Phiên bản máy phục vụ: 10.4.22-MariaDB
 -- Phiên bản PHP: 8.1.1
 
@@ -62,7 +62,9 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`admin_id`, `admin_name`, `admin_email`, `admin_pass`, `admin_address`, `admin_phone`) VALUES
 (1, 'hoainam', 'hoainam1211@gmail.com', '202cb962ac59075b964b07152d234b70', '123', 123),
-(2, 'nam', 'kh@gmail.com', '202cb962ac59075b964b07152d234b70', '123', 0);
+(2, 'nam', 'kh@gmail.com', '202cb962ac59075b964b07152d234b70', '123', 0),
+(3, 'nam', 'hoainam0607@gmail.com', '202cb962ac59075b964b07152d234b70', '123', 0),
+(4, 'nam', 'ngan@gmail.com', '202cb962ac59075b964b07152d234b70', '0856485987', 123);
 
 -- --------------------------------------------------------
 
@@ -130,11 +132,30 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`product_id`, `product_name`, `price`, `avtar`, `type_id`, `status`, `quantily`) VALUES
-('FS5121', 'FOSSIL 36 mm Nam FS5121', 2000000, 'popular5.png', 1, '-1', 0),
-('FS5437', 'FOSSIL 44 mm Nam FS5437', 2000000, 'popular3.png', 3, '-1', 0),
-('ME3201', 'FOSSIL 42 mm Nam ME3201', 1800000, 'popular5.png', 3, '-1', 0),
-('ML065-01', 'MVW ML065-01 ', 1400000, 'popular6.png', 2, 'Còn Hàng', 5),
-('S580AT', 'EDIFICE EFS-S580AT-1A', 2200000, 'popular4.png', 1, '-1', 0);
+('1', 'Đồng hồ Nam MVW ML061-01', 1100000, 'dong-ho-nam-mvw-ml061-01-1.-600x600.jpg', 2, 'Còn Hàng', 7),
+('10', 'Đồng hồ Nam MVW MS075-01 ', 1600000, 'dong-ho-nam-mvw-ms075-01-1.-600x600.jpg', 2, 'Còn Hàng', 8),
+('110', 'Đồng hồ Nam Citizen NP1010-51E', 8100000, 'citizen-np1010-51e-nam-1-1-600x600.jpg', 3, 'Còn Hàng', 13),
+('1111', 'Đồng hồ Nữ Citizen EM0643-84X ', 7500000, 'citizen-em0643-84x-10-600x600.jpg', 3, 'Còn Hàng', 15),
+('1112', 'Đồng hồ Nữ Citizen EM0726-89Y ', 7500000, 'citizen-em0726-89y-2-600x600.jpg', 3, 'Còn Hàng', 15),
+('112', 'Đồng hồ Nam Citizen NK0008-85L', 8500000, 'citizen-nk0008-85l-nam-1-1-600x600.jpg', 3, 'Còn Hàng', 13),
+('115', 'Đồng hồ Nam Citizen NP1010-01A', 8000000, 'citizen-np1010-01a-trang-1-1-600x600.jpg', 3, 'Còn Hàng', 12),
+('121', 'Đồng hồ đôi Elio EL072-01/EL07', 1300000, 'elio-el072-01-.jpg', 1, 'Còn Hàng', 8),
+('1211', 'Đồng hồ đôi Elio EL050-01/EL05', 1100000, 'elio-el050-01-.jpg', 1, 'Còn Hàng', 8),
+('1212', 'Đồng hồ Nữ Citizen Citizen EW5', 7300000, 'citizen-ew5500-57a-600x600.jpg', 3, 'Còn Hàng', 12),
+('14', 'Đồng hồ đôi Elio EL073-01/EL07', 1500000, 'elio-el073-01.jpg', 1, 'Còn Hàng', 8),
+('2', 'Đồng hồ Nam MVW ML063-01', 1100000, 'dong-ho-nam-mvw-ml063-01-1.-600x600.jpg', 2, 'Còn Hàng', 7),
+('212', 'Đồng hồ đôi Elio EL076-01/EL07', 1300000, 'elio-el076-01.jpg', 1, 'Còn Hàng', 8),
+('2121', 'Đồng hồ Nam Citizen CA0710-82L', 9000000, 'citizen-ca0710-82l-nam-1-600x600.jpg', 3, 'Còn Hàng', 15),
+('2122', 'Đồng hồ Nữ Citizen EM0720-85N ', 7700000, 'citizen-em0640-82d-600x600.jpg', 3, 'Còn Hàng', 13),
+('3', 'Đồng hồ Nam MVW ML064-01', 1200000, 'dong-ho-nam-mvw-ml065-01-1.-600x600.jpg', 2, 'Còn Hàng', 7),
+('32', 'Đồng hồ đôi Elio EL057-01/EL05', 1300000, 'elio-el057-01.jpg', 1, 'Còn Hàng', 8),
+('321', 'Đồng hồ đôi Elio EL069-01/EL06', 1500000, 'elio-el069-01.jpg', 1, 'Còn Hàng', 8),
+('4', 'Đồng hồ Nam MVW ML065-01 ', 1100000, 'dong-ho-nam-mvw-ml065-01-1.-600x600.jpg', 2, 'Còn Hàng', 8),
+('412', 'Đồng hồ đôi Elio EL078-01/EL07', 1800000, 'elio-el078-01.jpg', 1, 'Còn Hàng', 8),
+('415', 'Đồng hồ đôi Elio EL075-01/EL07', 1500000, 'elio-el075-01.jpg', 1, 'Còn Hàng', 8),
+('5', 'Đồng hồ Nam MVW MS071-01 ', 1300000, 'dong-ho-nam-mvw-ms071-01-1.-600x600.jpg', 2, 'Còn Hàng', 7),
+('6', 'Đồng hồ Nam MVW MS072-01 ', 1300000, 'dong-ho-nam-mvw-ms072-01-1.-600x600.jpg', 2, 'Còn Hàng', 8),
+('8', 'Đồng hồ Nam MVW MS071-02', 1300000, 'dong-ho-nam-mvw-ms072-02-1.-600x600.jpg', 2, 'Còn Hàng', 8);
 
 -- --------------------------------------------------------
 
@@ -152,9 +173,9 @@ CREATE TABLE `type` (
 --
 
 INSERT INTO `type` (`type_id`, `type_name`) VALUES
-(1, 'CASIO'),
+(1, 'ELIO'),
 (2, 'MVW'),
-(3, 'POSSIL');
+(3, 'CITIZEN');
 
 -- --------------------------------------------------------
 
@@ -177,7 +198,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`user_id`, `user_name`, `user_email`, `user_pass`, `user_phone`, `user_address`) VALUES
 (7, 'hoainam', 'hoainam1211@gmail.com', '250cf8b51c773f3f8dc8b4be867a9a02', 456, '123'),
-(12111, 'hoainam', 'kh@gmail.com', '202cb962ac59075b964b07152d234b70', 1, '1');
+(12112, 'hoainam', 'hoainam@gmail.com', '202cb962ac59075b964b07152d234b70', 123, '123');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -239,31 +260,31 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT cho bảng `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `oadmin`
 --
 ALTER TABLE `oadmin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT cho bảng `order`
 --
 ALTER TABLE `order`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- AUTO_INCREMENT cho bảng `order_detail`
 --
 ALTER TABLE `order_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12112;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12113;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
