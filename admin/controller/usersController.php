@@ -25,7 +25,7 @@ switch ($user_group_action) {
         $login_password = md5($login_password);
         $data = UserDao::getAdmin($login_email);
         
-        if (isset($data["admin_email"]) == false) {
+        if (isset($data["admin_email"]) == null) {
             alertM("Tên đăng nhập này không tồn tại. Vui lòng kiểm tra lại. !!!", "../view/login.php");
             exit;
         } elseif (!$login_email || !$login_password) {
@@ -36,15 +36,13 @@ switch ($user_group_action) {
             exit;
         } elseif ($login_email == $data["admin_email"] && $login_password == $data["admin_pass"]) {
             $_SESSION["admin_email"] = $login_email;
-            $_SESSION["isLogin"] = true;
+            $_SESSION["isLoginAdmin"] = true;
             $_SESSION["admin"] = $data["admin_id"];
-            
             alertM("Đăng Nhập Thành Công", "../view/index.php");
           
         } else {
             header("Location: ../view/login.php");
         }
-        
         break;
     case 'user_create':
         $txt_id = $_POST["txt_id"];

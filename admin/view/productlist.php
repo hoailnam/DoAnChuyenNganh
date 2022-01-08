@@ -63,7 +63,7 @@
               </div>
             </li>
             <li class="icons dropdown">
-              
+
               <?php include '../view/layout/menupage.php' ?>
             </li>
           </ul>
@@ -90,6 +90,7 @@
     <div class="content-body">
 
       <div class="container-fluid mt-3">
+
         <div class="row">
           <div class="col-lg-12">
             <div class="card">
@@ -112,6 +113,8 @@
                       <tbody>
                       <tbody>
                         <?php
+                        $page = 1;
+                        $param = array();
                         $servername = "localhost";
                         $username = "root";
                         $password = "";
@@ -119,7 +122,15 @@
                         try {
                           $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
                           $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                          $stmt = $conn->prepare("SELECT `product_id`, `product_name`, `price`, `avtar`, `type_id`,status,quantily FROM `product`");
+                          if (isset($_GET['page']))
+                            $page = $_GET['page'];
+                          if (isset($_GET['type_id'])) {
+                            // $query = "select * from product where type_id=?";
+                            // $param[] = $_GET['type_id'];
+                          } else
+                            $query = "SELECT `product_id`, `product_name`, `price`, `avtar`, `type_id`,status,quantily FROM `product`";
+                          $query .= ' limit ' . ($page - 1) * 6 . ',' . 6;
+                          $stmt = $conn->prepare($query);
                           $stmt->execute();
                           $product = $stmt->fetchALL(PDO::FETCH_ASSOC);
                           if ($product) {
@@ -169,7 +180,21 @@
             </div>
           </div>
         </div>
-        <?php include 'layout/pagination.php'; ?>
+        <div class="custom-pagination">
+          <ul class="pagination">
+            <?php
+            include '../utils/MYSQLUtils.php';
+            $dbCon = new MYSQLUtil();
+
+            $sql = "select count(*) from product";
+            $sotrang = $dbCon->getPage($sql, $param);
+            for ($i = 1; $i <= $sotrang; $i++)
+              echo ' <li class="page-item"><a class="page-link" href="productlist.php?page=' . $i . '">' . $i . '</a></li> ';
+            ?>
+
+          </ul>
+        </div>
+
 
 
 

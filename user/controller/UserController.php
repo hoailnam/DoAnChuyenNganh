@@ -24,7 +24,7 @@ class UserController extends BaseController{
 
                 $data = UserDao::getUser($login_email);
 
-                if (isset($data["user_email"]) == false) {
+                if (isset($data["user_email"]) == null) {
                     alertM("Tên đăng nhập này không tồn tại. Vui lòng kiểm tra lại. !!!", "../view/login.php");
                     exit;
                 } elseif (!$login_email || !$login_password) {
@@ -35,7 +35,7 @@ class UserController extends BaseController{
                     exit;
                 } elseif ($login_email == $data["user_email"] && $login_password == $data["user_pass"]) {
                     $_SESSION["user_name"] = $data['user_name'];
-                    $_SESSION["isLogin"] = true;
+                    $_SESSION["isLoginUser"] = true;
                     $_SESSION["user_ma"] = $data["user_id"];
                     alertM("Đăng Nhập Thành Công", "../view/index.php");
                 } else {

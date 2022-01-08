@@ -36,7 +36,7 @@ class UserController extends BaseController{
                     exit;
                 } elseif ($login_email == $data["user_email"] && $login_password == $data["user_pass"]) {
                     $_SESSION["user_email"] = $login_email;
-                    $_SESSION["isLogin"] = true;
+                    $_SESSION["isLoginUser"] = true;
                     alertM("Đăng Nhập Thành Công", "../view/index.php");
                     die();
                 } else {

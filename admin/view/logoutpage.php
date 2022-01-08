@@ -1,7 +1,8 @@
 <?php
 session_start();
 session_unset();
-session_destroy();
+$_SESSION['isLoginAdmin']= false;
+$_SESSION["admin_email"] ="";
 echo '<script language="javascript">';
 echo 'alert("Đăng Xuất Thành Công !!! ")';
 echo '</script>';

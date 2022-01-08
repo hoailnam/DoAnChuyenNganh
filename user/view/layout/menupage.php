@@ -7,7 +7,8 @@
         </li>
         <?php
         session_start();
-        if (isset($_SESSION["isLogin"])) {
+        
+        if (isset($_SESSION["isLoginUser"])&& $_SESSION['isLoginUser'] == true) {
             echo '<li> <a href="./history.php"><span class="flaticon-user">' . $_SESSION["user_name"] . '</span></a></li>';
             echo '<li><a href="logoutpage.php"><i class="icon-key"></i> <span>Logout</span></a></li>';
             echo '<li><a href="cart.php"><span class="flaticon-shopping-cart"></span></a> </li>';

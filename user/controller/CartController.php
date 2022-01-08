@@ -42,7 +42,7 @@ if (isset($_SESSION['cart'])) {
         $_SESSION['cart'][$product_id]['avtar'] = $pr['avtar'];
         $_SESSION['cart'][$product_id]['price'] = $pr['price'];
     }
-    if (isset($_SESSION['isLogin'])) {
+    if (isset($_SESSION['isLoginUser'])) {
         header("Location:../view/cart.php");
     } else {
         header("Location:../view/login.php");
@@ -55,7 +55,7 @@ if (isset($_SESSION['cart'])) {
     $_SESSION['cart'][$product_id]['product_name'] = $pr['product_name'];
     $_SESSION['cart'][$product_id]['price'] = $pr['price'];
     $_SESSION['cart'][$product_id]['qty_value'] = $value;
-    if (isset($_SESSION['isLogin'])) {
+    if (isset($_SESSION['isLoginUser'])) {
         header("Location:../view/cart.php");
     } else {
         header("Location:../view/login.php");

@@ -1,5 +1,5 @@
 <?php
-if (isset($_SESSION['isLogin'])) {
+if (isset($_SESSION['isLoginAdmin'])) {
 ?>
     <div class="nk-sidebar">
         <div class="nk-nav-scroll">

@@ -85,7 +85,14 @@ class MYSQLUtil
         $stmt->execute();
     }
 
-    //Product
+    public function getPage($query, $param = array())
+    {
+        $stmt = self::$conn->prepare($query);
+        $stmt->execute($param);
+        $tong = $stmt->fetchColumn();
+        $sotrang = ceil($tong / 6);
+        return $sotrang;
+    }
     
     
     

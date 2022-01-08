@@ -28,6 +28,9 @@ class UserDao
         $param = array(":user_email" => $user_email);
         $data = $myDB->getData($query, $param);
         $myDB->disconnectDB();
+        if (count($data) == 0) {
+            return null;
+        } else
         return $data[0];
     }
     public static function deleteUser($id)
@@ -54,6 +57,9 @@ class UserDao
         $param = array(":admin_email" => $user_email);
         $data = $myDB->getData($query, $param);
         $myDB->disconnectDB();
+        if (count($data) == 0) {
+            return null;
+        } else
         return $data[0];
     }
     public static function insertAdmin( $admin_name, $admin_email, $admin_pass, $admin_address, $admin_phone)

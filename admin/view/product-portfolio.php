@@ -72,7 +72,7 @@
               </div>
             </li>
             <li class="icons dropdown">
-              
+
               <?php include '../view/layout/menupage.php' ?>
             </li>
           </ul>
@@ -100,7 +100,7 @@
                     <table class="table table-xs mb-0">
                       <thead>
                         <tr>
-                          
+
                           <th>id</th>
                           <th>Name</th>
                           <th>Setting</th>
@@ -109,6 +109,8 @@
                       <tbody>
                       <tbody>
                         <?php
+                        $page = 1;
+                        $param = array();
                         $servername = "localhost";
                         $username = "root";
                         $password = "";
@@ -150,7 +152,19 @@
             </div>
           </div>
         </div>
-        <?php include 'layout/pagination.php'; ?>
+        <div class="custom-pagination">
+          <ul class="pagination">
+            <?php
+            include '../utils/MYSQLUtils.php';
+            $dbCon = new MYSQLUtil();
+            $sql = "select count(*) from type";
+            $sotrang = $dbCon->getPage($sql, $param);
+            for ($i = 1; $i <= $sotrang; $i++)
+              echo ' <li class="page-item"><a class="page-link" href="product-portfolio.php?page=' . $i . '">' . $i . '</a></li> ';
+            ?>
+          </ul>
+        </div>
+
 
 
 

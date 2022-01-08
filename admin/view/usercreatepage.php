@@ -122,7 +122,7 @@
                                         <div class="row form-group">
 
                                             <div class="col col-md-3"><label for="file-input" class=" form-control-label">Avatar</label></div>
-                                            <div class="col-12 col-md-9"><input type="file" name="fileToUpload" id="fileToUpload" class="form-control-file"></div>
+                                            <div class="col-12 col-md-9"><input type="file" name="fileToUpload" class="form-control-file"></div>
 
                                         </div>
                                         <div>

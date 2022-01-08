@@ -4,7 +4,7 @@
 </div>
 <?php
 session_start();
-if (isset($_SESSION["isLogin"])) {
+if (isset($_SESSION["isLoginAdmin"]) && $_SESSION['isLoginAdmin']== true) {
   echo '<div class="drop-down dropdown-profile animated fadeIn dropdown-menu">';
   echo '<div class="dropdown-content-body"> ';
   echo '<ul>';

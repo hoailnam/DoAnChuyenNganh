@@ -63,7 +63,6 @@ $details = OrderDao::getDetailsOrder($_GET['order_id']);
                 <li>
                   <p>Address</p><span> : <?php echo $history[0]['order_address'] ?></span>
                 </li>
-
               </ul>
             </div>
           </div>

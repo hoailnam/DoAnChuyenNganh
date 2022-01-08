@@ -64,7 +64,7 @@
               </div>
             </li>
             <li class="icons dropdown">
-              
+
               <?php include '../view/layout/menupage.php' ?>
             </li>
           </ul>
@@ -111,6 +111,8 @@
                       </thead>
                       <tbody>
                         <?php
+                        $page = 1;
+                        $param = array();
                         $servername = "localhost";
                         $username = "root";
                         $password = "";
@@ -162,7 +164,18 @@
             </div>
           </div>
         </div>
-        <?php include 'layout/pagination.php'; ?>
+        <div class="custom-pagination">
+          <ul class="pagination">
+            <?php
+            include '../utils/MYSQLUtils.php';
+            $dbCon = new MYSQLUtil();
+            $sql = "select count(*) from user";
+            $sotrang = $dbCon->getPage($sql, $param);
+            for ($i = 1; $i <= $sotrang; $i++)
+              echo ' <li class="page-item"><a class="page-link" href="UserList.php?page=' . $i . '">' . $i . '</a></li> ';
+            ?>
+          </ul>
+        </div>
 
 
 

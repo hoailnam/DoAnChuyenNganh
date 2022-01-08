@@ -66,22 +66,8 @@
       </div>
     </div>
 
-
-    <!--**********************************
-            Header end ti-comment-alt
-        ***********************************-->
-
-    <!--**********************************
-            Sidebar start
-        ***********************************-->
     <?php include 'layout/Sidebar_start.php'; ?>
-    <!--**********************************
-            Sidebar end
-        ***********************************-->
 
-    <!--**********************************
-            Content body start
-        ***********************************-->
     <div class="content-body">
 
       <div class="container-fluid mt-3">
@@ -107,6 +93,8 @@
                       <tbody>
                       <tbody>
                         <?php
+                        $page = 1;
+                        $param = array();
                         $servername = "localhost";
                         $username = "root";
                         $password = "";
@@ -119,7 +107,6 @@
                           $product = $stmt->fetchALL(PDO::FETCH_ASSOC);
                           if ($product) {
                             foreach ($product as $product) {
-
                               echo '<tr>';
                               echo '<td >' . $product['order_id'] . '</td>';
                               echo '<td ><span>' . $product['order_date'] . '</span> </td>';
@@ -140,10 +127,7 @@
                                 echo '<td width="30px">';
                                 echo '<a href="../controller/OrderController.php?order_id=' . $product['order_id'] . '&action=duyet" type = "button" class = "btn btn-success"><i class = "fa fa-edit"></i> Duyệt</a>';
                                 echo '</td>';
-                              }else{
-
-                                
-
+                              } else {
                                 echo '<td width="30px">';
                                 echo '<a href="../controller/OrderController.php?order_id=' . $product['order_id'] . '&action=delete" type = "button" class = "btn btn-danger" "  ><i class = "fa fa-times"></i> Xóa</a>';
                                 echo '</td>';
@@ -156,10 +140,7 @@
                         }
                         $conn = null;
                         ?>
-
-
                       </tbody>
-
                       </tbody>
                     </table>
                   </div>
@@ -168,38 +149,10 @@
             </div>
           </div>
         </div>
-
-
-
-
-
-
-
+        
         <?php include 'layout/mxh.php'; ?>
-        <!-- #/ container -->
-
-        <!--**********************************
-            Content body end
-        ***********************************-->
-
-
-        <!--**********************************
-            Footer start
-        ***********************************-->
         <?php include 'layout/Footer.php'; ?>
-        <!--**********************************
-            Footer end
-        ***********************************-->
-
-        <!--**********************************
-        Main wrapper end
-    ***********************************-->
-
-        <!--**********************************
-        Scripts
-    ***********************************-->
         <?php include 'layout/Scripts.php'; ?>
-
 </body>
 
 </html>
